@@ -3,10 +3,12 @@ name: Deploy ScoutOffice
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "0 4 * * 1" # chaque lundi : nouvelle version amont ?
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -15,7 +17,41 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.compare.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Relever les versions amont
+        id: compare
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          {
+            awk '/upstream:/{print $2}' apps.yml | sort -u | while read -r repo; do
+              echo "$repo $(gh release view --repo "$repo" --json tagName --jq .tagName)"
+            done
+            for repo in excalidraw/excalidraw TiddlyWiki/TiddlyWiki5; do
+              echo "$repo $(gh api "repos/$repo/commits/HEAD" --jq .sha | cut -c1-12)"
+            done
+          } > versions.new
+          cat versions.new
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ] && cmp -s versions.new upstream-versions.txt; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Aucune nouvelle version amont." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            mv versions.new upstream-versions.txt
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add upstream-versions.txt
+            git diff --cached --quiet || { git commit -m "Versions amont mises à jour"; git push || true; }
+          fi
   build:
+    needs: check
+    if: needs.check.outputs.changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout ScoutOffice
@@ -78,7 +114,7 @@ jobs:
         with:
           path: build
   deploy:
-    needs: build
+    needs: [check, build]
     runs-on: ubuntu-latest
     environment:
       name: github-pages

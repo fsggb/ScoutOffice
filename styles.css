@@ -42,3 +42,4 @@ footer a:hover{color:var(--gold-dark)}
 @media(max-width:600px){main{padding-top:35px}.topbar{padding:0 20px}.app-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.app-card{transition:none}.app-card:hover{transform:none}}
 .brand-logo{width:40px;height:40px;object-fit:contain}
+.topnav{display:flex;align-items:center;gap:22px}
