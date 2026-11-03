@@ -95,7 +95,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          cp index.html styles.css build/
+          cp index.html build/
           while read -r key display upstream_repo source_dir binary output_dir upstream_name asset_prefix icon; do
             [ "$key" = "-" ] && continue
             release_dir="$RUNNER_TEMP/releases/$key"
