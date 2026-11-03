@@ -1,9 +1,9 @@
-storytold/deckcraft v0.14.1
-storytold/filmcraft v0.16.0
-storytold/gridcraft v0.15.0
-storytold/pdfcraft v0.17.0
-storytold/photocraft v0.19.0
-storytold/vectorcraft v0.20.0
-storytold/wordcraft v0.14.0
-excalidraw/excalidraw 8bcdca452686
+storytold/deckcraft v0.15.0
+storytold/filmcraft v0.17.0
+storytold/gridcraft v0.16.0
+storytold/pdfcraft v0.18.0
+storytold/photocraft v0.20.1
+storytold/vectorcraft v0.21.0
+storytold/wordcraft v0.15.0
+excalidraw/excalidraw dd2f8fc32b92
 TiddlyWiki/TiddlyWiki5 999763abb080
