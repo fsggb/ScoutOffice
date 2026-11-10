@@ -17,7 +17,13 @@ Suite bureautique en ligne, sans installation, servie par GitHub Pages (https://
 | Acrobat (PDF) | lecture et édition de PDF | /ScoutOffice/PDF/ | lire, annoter, modifier des PDF |
 | Photoshop | retouche d'images | /ScoutOffice/Photoshop/ | retouche et création d'images |
 | Illustrator | dessin vectoriel | /ScoutOffice/Illustrator/ | logos, schémas, affiches |
+| InDesign | mise en page | /ScoutOffice/InDesign/ | brochures, flyers, journaux |
+| Lightroom | développement photo | /ScoutOffice/Lightroom/ | trier et retoucher des photos |
+| Figma | interfaces et prototypes | /ScoutOffice/Figma/ | maquettes d'écrans |
 | Premiere Pro | montage vidéo | /ScoutOffice/Premiere/ | montage de films de camp |
+| After Effects | effets visuels | /ScoutOffice/AfterEffects/ | animations, compositing |
+| Pro Tools | studio audio | /ScoutOffice/ProTools/ | enregistrement et mixage |
+| Substance Painter | textures 3D | /ScoutOffice/SubstancePainter/ | peindre des textures sur des modèles 3D |
 | Excalidraw | dessin libre | /ScoutOffice/Draw/ | schémas à main levée, tableaux blancs |
 
 ## Règles communes
