@@ -22,6 +22,6 @@ Suite bureautique en ligne, sans installation, servie par GitHub Pages (https://
 
 ## Règles communes
 - Pas de compte nécessaire. Enregistrer = télécharger le fichier sur l'ordinateur ; ouvrir = choisir un fichier de l'ordinateur.
-- Le stockage dans GitHub (ScoutCloud) n'existe plus.
+- L'ancien stockage dans GitHub n'existe plus ; ScoutCloud (Google Drive de l'utilisateur) n'est pas encore ouvert.
 
 *À compléter : étapes pas à pas, questions fréquentes, particularités pour les scouts.*
